@@ -32,12 +32,20 @@ describe('dealership can add car to stock', () => {
     });
 });
 
-describe('dealership can find all  manufacturers', () => {
+describe('dealership can find all manufacturers', () => {
     test('can find all manufacturers', () => {
         const car2 = new Car("toyota", 75000, "electric");
         dealership1.addCarToStock(car2);
         expected = ["mercedes", "toyota"];
         actual = dealership1.returnManufacturer();
         expect(actual).toEqual(expected);
+    });
+});
+
+describe('dealership can find all cars by manufacturer', () => {
+    test('can find all cars by manufacturer', () => {
+        expected = [car1];
+        actual = dealership1.returnCarByManufacturer("mercedes");
+        expect(actual).toBe(expected);
     });
 });
