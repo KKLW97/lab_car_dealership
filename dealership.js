@@ -31,24 +31,33 @@ Dealership.prototype.returnCarByManufacturer = function(manufacturer) {
     //         results.push(car);
     //     };
     // };
-
     let newArray = this.carsInStock.filter(function(car)
- {
-  return car.manufacturer === manufacturer;
- });
- console.log(newArray);
+    { 
+        return car.manufacturer === manufacturer;
+    });  
+    return newArray
+};
+
+// find total value of all cars in stock
+Dealership.prototype.findTotalValue = function(){
+    const price = this.carsInStock.map(car => car.price);
+    const total = price.reduce((accumulator, price) => accumulator + price);
+    return total;
+
+    // const total = this.carsInStock.reduce((accumulator, car))
 };
 
 const dealership1 = new Dealership("BNTA cars", 200);
 const car1 = new Car("mercedes", 55000, "petrol");
 const car2 = new Car("toyota", 55000, "petrol");
-// const car3 = new Car("mercedes", 55000, "petrol");
+const car3 = new Car("mercedes", 55000, "petrol");
 
 dealership1.addCarToStock(car1);
 dealership1.addCarToStock(car2);
-// dealership1.addCarToStock(car3);
+dealership1.addCarToStock(car3);
 // dealership1.returnCarByManufacturer("mercedes");
 // stock = dealership1.countCarsInStock()
 // console.log(stock);
-console.log(dealership1.returnCarByManufacturer("mercedes"));
+// console.log(dealership1.returnCarByManufacturer("mercedes"));
+console.log(dealership1.findTotalValue());
 module.exports = Dealership;

@@ -44,8 +44,17 @@ describe('dealership can find all manufacturers', () => {
 
 describe('dealership can find all cars by manufacturer', () => {
     test('can find all cars by manufacturer', () => {
+        const car1 = new Car("mercedes", 55000, "petrol");
         expected = [car1];
         actual = dealership1.returnCarByManufacturer("mercedes");
-        expect(actual).toBe(expected);
+        expect(actual).toEqual(expected);
+    });
+});
+
+describe('dealership can find total value of stock', () => {
+    test('can find total value of stock',() => {
+    expected = 130000;
+    actual = dealership1.findTotalValue();
+    expect(actual).toEqual(expected);
     });
 });
