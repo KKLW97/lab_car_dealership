@@ -31,3 +31,13 @@ describe('dealership can add car to stock', () => {
         expect(actual).toStrictEqual(expected);
     });
 });
+
+describe('dealership can find all  manufacturers', () => {
+    test('can find all manufacturers', () => {
+        const car2 = new Car("toyota", 75000, "electric");
+        dealership1.addCarToStock(car2);
+        expected = ["mercedes", "toyota"];
+        actual = dealership1.returnManufacturer();
+        expect(actual).toEqual(expected);
+    });
+});
